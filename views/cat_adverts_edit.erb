@@ -1,0 +1,32 @@
+<h1>Edit > details</h1>
+
+<form action="/lostcats/<%= index %>" method="POST">
+<input type="hidden" name="_method" value="PATCH">
+  <div>
+    <label form="name">Name</label>
+    <br>
+    <input type="text" id ="name" name="name" value="<%= cat.name %>">
+  </div>
+
+  <div>
+    <label form="phone">Phone number</label>
+    <br>
+    <input type="text" id ="phone" name="phone" value="<%= cat.phone %>">
+  </div>
+
+  <div>
+    <label form="description">Description</label>
+    <br>
+    <input type="text" id ="description" name="description" value="<%= cat.description %>">
+  </div>
+
+      <div>
+    <label form="password">password</label>
+    <br>
+    <input type="text" id ="password" name="password">
+  </div>
+
+  <div>
+    <input type="submit" value="Submit">
+  </div>
+</form>

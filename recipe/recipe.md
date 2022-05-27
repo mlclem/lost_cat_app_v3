@@ -2,7 +2,28 @@
 
 ## 1. Describe the Problem
 
-_Put or write the user stories here. Add any clarifying notes you might have._
+## Stage One
+> As a user
+* So that I can find my cat that I lost
+* I want to post an advert for a lost cat with some description of the cat, and my telephone number so people can contact me
+
+> As a user
+* So that I can help others find their lost cats
+* I want to see all of the lost cat adverts
+
+## Stage Two
+> As a user
+* So that I can focus on the yet not-found cats
+* I want to delete adverts for cats that have been found
+
+> As a user
+* So that I can update lost cat adverts with potential sightings
+* I want to update adverts
+
+## Stage Three (More Challenging)
+> As a user
+* So that I can protect my cat adverts from weird people
+* I want to give a password with each advert, and only people who give the right password can update or delete that advert
 
 ## 2. Design the Interface
 
@@ -10,7 +31,7 @@ _This is the fun part! Use excalidraw.com or a similar tool to design some
 wireframes (rough sketches of the user interface). Include interactions and
 transitions between pages — those are the most critical part._
 
-![Diary design example](./diary_design.png)
+![Lost cat design](./lost_cat_design.png)
 
 ## 3. Design the Database
 
@@ -21,13 +42,13 @@ Sheets or [AsciiTable](https://ozh.github.io/ascii-tables/) to do this._
 ```plain
 # Example
 
-Table name: diary_entries
+Table name: cats_table
 
-| id (NUMBER) |  title (TEXT)   |     contents (TEXT)      |
-|-------------|-----------------|--------------------------|
-|           1 | What a nice day | Today was a great day... |
-|           2 | What a bad day  | Today was an awful da... |
-|           3 | What a cool day | Today was a cool day ... |
+| id SERIAL PK | name TEXT |  phone TEXT   | description TEXT  | password TEXT |
+|------------------|-----------|---------------|-------------------|---------------|
+|                1 | Bob       |    012468 235 | A small green cat | catpass       |
+|                2 | Scraggy   | 098946 468484 | A street cat      | passcat       |
+
 ```
 
 ## 4. Create Examples of User Interactions
@@ -39,34 +60,35 @@ _Create examples of user interactions and expectations._
 # code here, but at the start it's OK if it's just English or made up code.
 
 # View no entries
-visit "/diary"
+visit "/lostcats"
 # User sees: You have no diary entries.
 
 # Add an entry
-visit "/diary"
-click link "Add Entry"
-enter "A beautiful day" into "Title" field
-enter "I had a very nice day it's true." into "Contents" field
-click button "Post"
-# User sees in the diary list:
-# A beautiful day
-# I had a very nice day it's true.
+visit "/lostcats"
+click link "Add a lost kitty"
+enter "Barry the cat" into "Name" field
+enter "05128 852 298" into "Phone" field
+enter "A tortoiseshell tom" into "Description" field
+enter "oaushdoauhd" into "password" field
+click button "Submit"
+# User sees the advert on the board
 
 # Multiple entries
-visit "/diary"
-click link "Add Entry"
-enter "A beautiful day" into "Title" field
-enter "I had a very nice day it's true." into "Contents" field
-click button "Post"
-click link "Add Entry"
-enter "A bad day" into "Title" field
-enter "I had a very bad day." into "Contents" field
-click button "Post"
-# User sees in the diary list:
-# A bad day
-# I had a very bad day.
-# A beautiful day
-# I had a very nice day it's true.
+visit "/lostcats"
+click link "Add a lost kitty"
+enter "Barry the cat" into "Name" field
+enter "05128 852 298" into "Phone" field
+enter "A tortoiseshell tom" into "Description" field
+enter "oaushdoauhd" into "password" field
+click button "Submit"
+click link "Add a lost kitty"
+enter "Mouse" into "Name" field
+enter "20934 234 269" into "Phone" field
+enter "A large grey cat" into "Description" field
+enter "987a4uhto2" into "password" field
+click button "Submit"
+# User sees both cats in the diary list:
+
 ```
 
 ## 6. Test-Drive the Behaviour

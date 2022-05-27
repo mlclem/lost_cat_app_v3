@@ -1,0 +1,36 @@
+<h1>Lost cat noticeboard</h1>
+  <% if cats_list.empty? %>
+    <div>
+      <p>There are no lost kitty catters. Congrats!</p>
+    </div>
+  <% else %>
+    <% cats_list.each_with_index.each do |cat, index| %>
+      <article>
+        <h2><%= cat.name %></h2>
+        <h3><%= cat.phone %></h3>
+        <p><%= cat.description %></p>
+        
+        <!-- Edit cat button -->
+        <div>
+          <form action="/lostcats/<%= index %>/edit">
+            <button id="edit <%= index %>">Edit cat details</button>
+          </form>
+        </div>
+
+        <!-- Delete / UPDATE button -->
+        <div>
+          <form action="/lostcats/<%= index %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <button id="delete <%= index %>">Mark cat as found</button>
+          </form>
+        </div>
+
+      </article>
+    <% end %>
+  <% end %>
+  <!-- Add cat button -->
+  <div>
+    <form action="/lostcats/new">
+      <button id="add cat">Add a lost cat</button>
+    </form>
+  </div>
