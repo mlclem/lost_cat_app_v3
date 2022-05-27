@@ -11,12 +11,13 @@ def reset_tables(db)
   
   # Add your table creation SQL here
   # Each one should be a pair of lines:
-  db.run("DROP TABLE IF EXISTS cat_adverts;")
   db.run("DROP TABLE IF EXISTS cats_table;")
   db.run(
     "CREATE TABLE cats_table (id SERIAL PRIMARY KEY, name TEXT NOT NULL,
     phone TEXT NOT NULL, description TEXT NOT NULL, password TEXT NOT NULL);"
   )
+  db.run("DROP TABLE IF EXISTS sightings_table;")
+  db.run("CREATE TABLE sightings_table (id SERIAL PRIMARY KEY, contents TEXT NOT NULL, ")
 end
 
 dev_db = DatabaseConnection.new("localhost", "web_application_dev")

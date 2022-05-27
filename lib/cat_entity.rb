@@ -1,8 +1,9 @@
 class CatEntity
-  def initialize(name, phone, description, password, id = nil)
+  def initialize(name, phone, description, password, sightings = [], id = nil)
     @name = name
     @phone = phone
     @description = description
+    @sightings = sightings
     @password = password
     @id = id
   end
@@ -21,6 +22,10 @@ class CatEntity
 
   def password
     return @password
+  end
+
+  def sightings
+    return @sightings
   end
 
   def id

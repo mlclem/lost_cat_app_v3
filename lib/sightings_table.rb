@@ -13,7 +13,7 @@ class SightingssTable
 
   def add(sighting)
     result = @db.run(
-      "INSERT INTO sightings_table contents VALUES $1 RETURNING id;", [sighting.contents])
+      "INSERT INTO sightings_table contents, date VALUES $1 RETURNING id;", [sighting.contents])
     return result[0]["id"]
   end
 

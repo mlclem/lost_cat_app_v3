@@ -13,5 +13,6 @@ RSpec.describe CatEntity do
     expect(new_cat.description).to eq "A colourful cat, last seen flying through space"
     expect(new_cat.password).to eq "gogonyancatgo"
     expect(new_cat.id).to eq nil
+    expect(new_cat.sightings).to eq []
   end
 end
