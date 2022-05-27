@@ -122,7 +122,7 @@ RSpec.describe "Lost cat board feature tests", type: :feature do
   end
 
   context "For an existing single cat instance" do
-    xit "sightings can be added to the advert" do
+    it "sightings can be added to the advert" do
       visit '/lostcats' 
       click_button "Add a lost cat"
       fill_in "name", with: "Vlad" 
@@ -134,6 +134,8 @@ RSpec.describe "Lost cat board feature tests", type: :feature do
       expect(page).to have_content "06660 666 606"
       expect(page).to have_content "Vlad is out for blood"
       click_button "Add a sighting for Vlad"
+      expect(page).to have_content "There are no sightings for Vlad"
+      click_button ""
       fill_in "sighting", with: "I saw Vlad by the graveyard"
       click_button "submit"
       expect(page).to have_content "Vlad" 

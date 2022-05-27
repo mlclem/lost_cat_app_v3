@@ -17,6 +17,13 @@
           </form>
         </div>
 
+        <!-- Add sightings button -->
+        <div>
+          <form action="/lostcats/<%= index %>/sightings">
+            <button id="sightings <%= index %>">Add a sighting for <%= cat.name %></button>
+          </form>
+        </div>
+
         <!-- Delete / UPDATE button -->
         <div>
           <form action="/lostcats/<%= index %>" method="POST">

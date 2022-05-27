@@ -89,6 +89,13 @@ class WebApplicationServer < Sinatra::Base
     redirect '/lostcats'
   end
 
+  # Sightings
+  get '/lostcats/:index/sightings' do
+    index = (params[:index].to_i + 1)
+    cat = cats_table.get(index)
+    erb :cat_adverts_sightings, locals: { cat: cat, index: index }
+  end
+
   # EXAMPLE ROUTES
 
   get '/animals' do
